@@ -222,6 +222,15 @@ test('real session login isolates profiles, sources, candidates and matching acr
     $this->getJson('/api/student-skills/candidates')->assertJsonFragment(['candidate_id' => $two, 'state' => 'rejected']);
 });
 
+test('skill source and candidate routes reject IDs outside the supported integer range', function () {
+    $this->actingAs(User::factory()->create());
+    $outOfRange = PHP_INT_MAX.'0';
+
+    $this->getJson("/api/skill-extraction/cv/$outOfRange")->assertNotFound();
+    $this->postJson("/api/student-skills/candidates/$outOfRange/confirm")->assertNotFound();
+    $this->postJson("/api/student-skills/candidates/$outOfRange/reject")->assertNotFound();
+});
+
 function skillsTestPdf(): string
 {
     $content = 'BT /F1 12 Tf 72 720 Td (Technical Skills: Python, SQL) Tj ET';

@@ -36,17 +36,17 @@ class StudentSkillController extends Controller
         ]);
     }
 
-    public function confirm(Request $request, int $candidateId): JsonResponse
+    public function confirm(Request $request, string $candidateId): JsonResponse
     {
         return response()->json([
-            'data' => $this->skills->decide((int) $request->user()?->getAuthIdentifier(), $candidateId, 'confirmed'),
+            'data' => $this->skills->decide((int) $request->user()?->getAuthIdentifier(), $this->numericRouteId($candidateId), 'confirmed'),
         ]);
     }
 
-    public function reject(Request $request, int $candidateId): JsonResponse
+    public function reject(Request $request, string $candidateId): JsonResponse
     {
         return response()->json([
-            'data' => $this->skills->decide((int) $request->user()?->getAuthIdentifier(), $candidateId, 'rejected'),
+            'data' => $this->skills->decide((int) $request->user()?->getAuthIdentifier(), $this->numericRouteId($candidateId), 'rejected'),
         ]);
     }
 }

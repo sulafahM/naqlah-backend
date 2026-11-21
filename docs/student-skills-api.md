@@ -60,3 +60,5 @@ Both decisions return the updated candidate. Repeating a recorded decision is sa
 The API returns `401` for unauthenticated requests, `404` for unknown or foreign source and candidate IDs, `422` for invalid inputs or course review actions, and `503` when Python is unavailable. Extractor failures preserve prior records and decisions.
 
 Run the feature tests with `php artisan test --filter=StudentSkillsTest`. The success cases run the actual Python component.
+
+The [Postman verification notes](postman/verification.md) link to the runnable collection, environment template, synthetic CV files and recorded HTTP results.

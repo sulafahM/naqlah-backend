@@ -78,10 +78,10 @@ class SkillExtractionController extends Controller
         return $this->extractActivity($request, SkillSource::ExternalCourse, $data);
     }
 
-    public function show(Request $request, SkillSource $source, int $sourceId): JsonResponse
+    public function show(Request $request, SkillSource $source, string $sourceId): JsonResponse
     {
         return response()->json([
-            'data' => $this->skills->source((int) $request->user()?->getAuthIdentifier(), $source, $sourceId),
+            'data' => $this->skills->source((int) $request->user()?->getAuthIdentifier(), $source, $this->numericRouteId($sourceId)),
         ]);
     }
 
