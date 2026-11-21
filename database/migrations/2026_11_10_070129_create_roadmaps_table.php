@@ -21,14 +21,14 @@ return new class extends Migration
 
             $table->enum('roadmap_type', [
                 'foundational',
-                'personalized'
+                'personalized',
             ]);
 
             $table->unsignedInteger('version_no')->default(1);
 
             $table->enum('status', [
                 'active',
-                'old'
+                'old',
             ])->default('active');
 
             $table->timestamp('created_at')->useCurrent();

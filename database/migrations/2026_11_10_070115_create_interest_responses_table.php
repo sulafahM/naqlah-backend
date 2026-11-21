@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
@@ -23,11 +23,26 @@ return new class extends Migration
             $table->primary(['user_id', 'question_id']);
         });
 
-        DB::statement("
+        if (DB::connection()->getDriverName() === 'sqlite') {
+            foreach (['INSERT' => 'insert', 'UPDATE' => 'update'] as $event => $name) {
+                DB::statement("
+                    CREATE TRIGGER interest_responses_rating_check_$name
+                    BEFORE $event ON interest_responses
+                    WHEN NEW.rating IS NOT NULL AND NEW.rating NOT BETWEEN 1 AND 5
+                    BEGIN
+                        SELECT RAISE(ABORT, 'Rating must be between 1 and 5');
+                    END
+                ");
+            }
+
+            return;
+        }
+
+        DB::statement('
             ALTER TABLE interest_responses
             ADD CONSTRAINT interest_responses_rating_check
             CHECK (rating IS NULL OR rating BETWEEN 1 AND 5)
-        ");
+        ');
     }
 
     public function down(): void

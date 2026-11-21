@@ -11,6 +11,8 @@
 /storage/*.key
 /storage/pail
 /vendor
+/.venv
+__pycache__/
 .env
 .env.backup
 .env.production

@@ -28,7 +28,7 @@ return new class extends Migration
             $table->enum('status', [
                 'pending',
                 'in_progress',
-                'completed'
+                'completed',
             ])->default('pending');
 
             $table->unique(['roadmap_id', 'order_index']);
