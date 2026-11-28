@@ -1,0 +1,20 @@
+﻿Alias,Canonical_Skill,Status,Rationale,Dictionary_Version
+c sharp,c#,Active (provisional),unambiguous_programming_language_spelling,naqlah-skills-v0.1.0
+ci cd,ci/cd,Active (provisional),spacing_variant,naqlah-skills-v0.1.0
+cpp,c++,Active (provisional),conventional_programming_language_abbreviation,naqlah-skills-v0.1.0
+deep-learning,deep learning,Active (provisional),documented_phrase_spelling_variant,naqlah-skills-v0.1.0
+k8s,kubernetes,Active (provisional),conventional_technology_abbreviation,naqlah-skills-v0.1.0
+machine-learning,machine learning,Active (provisional),documented_phrase_spelling_variant,naqlah-skills-v0.1.0
+node js,node.js,Active (provisional),conventional_technology_spelling,naqlah-skills-v0.1.0
+nodejs,node.js,Active (provisional),conventional_technology_spelling,naqlah-skills-v0.1.0
+scikit learn,scikit-learn,Active (provisional),conventional_library_spelling,naqlah-skills-v0.1.0
+sklearn,scikit-learn,Active (provisional),conventional_library_alias,naqlah-skills-v0.1.0
+ai,artificial intelligence,Pending team review — inactive,ambiguous_acronym_or_target_unavailable,naqlah-skills-v0.1.0
+javascript/jquery,,Pending team review — inactive,compound_expression_contains_distinct_technologies,naqlah-skills-v0.1.0
+js,javascript,Pending team review — inactive,short_abbreviation_requires_context_policy,naqlah-skills-v0.1.0
+mssql,sql server,Pending team review — inactive,target_not_in_source_inventory,naqlah-skills-v0.1.0
+nlp,natural language processing,Pending team review — inactive,abbreviation_requires_context_policy,naqlah-skills-v0.1.0
+postgres,postgresql,Pending team review — inactive,short_form_requires_team_agreement,naqlah-skills-v0.1.0
+python 3,python,Pending team review — inactive,version_to_family_mapping_requires_team_agreement,naqlah-skills-v0.1.0
+python3,python,Pending team review — inactive,version_to_family_mapping_requires_team_agreement,naqlah-skills-v0.1.0
+sqlserver,sql server,Pending team review — inactive,target_not_in_source_inventory,naqlah-skills-v0.1.0

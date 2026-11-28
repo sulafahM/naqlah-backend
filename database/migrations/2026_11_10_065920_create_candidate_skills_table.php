@@ -23,7 +23,7 @@ return new class extends Migration
                 'cv',
                 'practical_work',
                 'external_course',
-                'university_course'
+                'university_course',
             ]);
 
             $table->unsignedBigInteger('source_id');
@@ -31,7 +31,7 @@ return new class extends Migration
             $table->enum('status', [
                 'pending',
                 'confirmed',
-                'rejected'
+                'rejected',
             ])->default('pending');
 
             $table->index(['user_id', 'skill_id']);

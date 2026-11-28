@@ -25,14 +25,22 @@ jobs:
           php-version: '8.4'
           tools: composer:v2
           coverage: none
+          extensions: zip
 
       - name: Setup Node
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '22'
 
+      - name: Install Python extractor dependencies
+        run: |
+          python3 -m venv .venv
+          .venv/bin/python -m pip install -r nlp/requirements.txt
+
       - name: Setup Application
         run: composer setup
 
       - name: Run CI Checks
         run: composer ci:check
+        env:
+          SKILL_EXTRACTION_PYTHON: ${{ github.workspace }}/.venv/bin/python
